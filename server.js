@@ -54,7 +54,6 @@ function securitySanitizer(req, res, next) {
 }
 
 app.use(securitySanitizer);
-const path = require("path");
 
 // Serve static files
 app.use(express.static(__dirname));
