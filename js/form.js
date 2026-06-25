@@ -96,8 +96,8 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.classList.add('loading');
             submitBtn.disabled = true;
 
-            // Submit securely to local backend server (which holds Gmail credentials safely in a dotenv environment)
-            fetch('http://localhost:5000/api/contact', {
+            // Submit securely to backend (works on localhost port 5000 and production Vercel)
+            fetch('/api/contact', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
