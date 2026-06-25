@@ -57,7 +57,7 @@ app.use(securitySanitizer);
 
 // Serve static files
 // app.use(express.static(__dirname));
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname))); // change the directory to serve static files from the current directory
 
 // Home page
 app.get("/", (req, res) => {
