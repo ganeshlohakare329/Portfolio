@@ -6,6 +6,7 @@ require('dotenv').config();
 const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
+const path = require("path");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -53,6 +54,15 @@ function securitySanitizer(req, res, next) {
 }
 
 app.use(securitySanitizer);
+const path = require("path");
+
+// Serve static files
+app.use(express.static(__dirname));
+
+// Home page
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "index.html"));
+});
 
 // Contact API Route
 app.post('/api/contact', async (req, res) => {
