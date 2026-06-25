@@ -56,7 +56,8 @@ function securitySanitizer(req, res, next) {
 app.use(securitySanitizer);
 
 // Serve static files
-app.use(express.static(__dirname));
+// app.use(express.static(__dirname));
+app.use(express.static("public"));
 
 // Home page
 app.get("/", (req, res) => {
