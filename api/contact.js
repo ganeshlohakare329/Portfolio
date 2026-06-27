@@ -4,7 +4,7 @@ const nodemailer = require('nodemailer');
 // SQL Injection and XSS Protection Middleware/Logic
 function sanitize(val) {
     if (typeof val !== 'string') return val;
-    
+
     // Remove typical SQL Injection strings (escaping quotes, blocking inline queries)
     let cleaned = val
         .replace(/'/g, "''")          // Escape single quotes for SQL databases
@@ -16,12 +16,12 @@ function sanitize(val) {
         .replace(/INSERT/gi, "")      // Remove INSERT statements
         .replace(/OR 1=1/gi, "")      // Remove boolean bypasses
         .replace(/;/g, "");           // Remove query termination markers
-        
+
     // Basic XSS Prevention (strip dangerous tags)
     cleaned = cleaned
         .replace(/<script[^>]*>([\s\S]*?)<\/script>/gi, "")
         .replace(/<\/?[^>]+(>|$)/g, ""); // Strip general HTML tags
-        
+
     return cleaned.trim();
 }
 
@@ -74,10 +74,10 @@ module.exports = async (req, res) => {
         replyTo: email,                              // Direct reply goes to recruiter
         subject: `[Portfolio Inquiry] ${subject}`,
         text: `You have received a new message from your portfolio website.\n\n` +
-              `Name: ${name}\n` +
-              `Email: ${email}\n` +
-              `Subject: ${subject}\n\n` +
-              `Message:\n${message}\n`,
+            `Name: ${name}\n` +
+            `Email: ${email}\n` +
+            `Subject: ${subject}\n\n` +
+            `Message:\n${message}\n`,
         html: `
             <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
                 <div style="background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%); padding: 20px; color: #fff; text-align: center;">
