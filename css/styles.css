@@ -8,6 +8,12 @@ html {
     width: fit-content;
 }
 
+body {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
 :root {
     /* Color Palette */
     --primary-h: 202;
