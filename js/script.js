@@ -252,7 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Sub-millimeter hardware coordination translating pixel coordinates to physical motor movements via Arduino controllers.",
                 "Sustainable mechanical weeding with 0% chemical footprint."
             ],
-            github: "https://github.com/ganeshlohakare329",
+            github: null, // No public repository for this project
             demo: "#"
         },
         fraud: {
@@ -269,7 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Mitigated high false-positive alarms using custom probability decision boundaries.",
                 "Achieved 94.2% recall for fraud cases with high overall model reliability."
             ],
-            github: "https://github.com/ganeshlohakare329",
+            github: "https://github.com/ganeshlohakare329/-FraudX-credit-card-fraud-detection",
             demo: "#"
         },
         churn: {
@@ -286,7 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 "Segmented profiles by contracts, payment methods, and technical support requests.",
                 "Provided critical business insights that helped retention managers target high-risk clients, reducing customer loss indicators."
             ],
-            github: "https://github.com/ganeshlohakare329",
+            github: "https://github.com/ganeshlohakare329/Customer-churn-analysis-",
             demo: "#"
         }
     };
@@ -349,7 +349,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                     
                     <div class="cs-actions">
-                        <a href="${data.github}" target="_blank" class="btn btn-primary"><i class="fa-brands fa-github"></i> View GitHub Repo</a>
+                        ${data.github
+                            ? `<a href="${data.github}" target="_blank" class="btn btn-primary"><i class="fa-brands fa-github"></i> View GitHub Repo</a>`
+                            : `<span class="btn btn-secondary" style="cursor:default;opacity:0.6;" title="This project does not have a public repository"><i class="fa-solid fa-lock"></i> No Public Repository</span>`
+                        }
                         <button class="btn btn-secondary" onclick="document.getElementById('projectLightbox').classList.remove('active'); document.body.style.overflow='';"><i class="fa-solid fa-xmark"></i> Close Preview</button>
                     </div>
                 </div>
