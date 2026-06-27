@@ -4,6 +4,10 @@
    ========================================================================== */
 
 /* Variables & Themes */
+html {
+    width: fit-content;
+}
+
 :root {
     /* Color Palette */
     --primary-h: 202;
